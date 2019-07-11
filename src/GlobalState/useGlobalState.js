@@ -1,7 +1,14 @@
 import { useState } from 'react'
 
 // El estado general es este objeto. Se recomienda mantener esta estructura como contenedor de arrays, strings, otros objetos...etc
-const State = {}
+const State = {
+    currentRoute: "main",
+    data: {},
+    singleJson: {
+        type: "",
+        data: {}
+    }
+}
 
 const useGlobalState = () => {
     const [state, setState] = useState(State)
@@ -10,7 +17,13 @@ const useGlobalState = () => {
         const { type, payload } = action
 
         switch (type) {
-            // aqui van los casos para manejo de el estado global
+            case "setState": {
+                return setState(payload)
+            }
+            case "getState": {
+                console.log(state)
+                return state;
+            }
             default: return state;
         }
     }

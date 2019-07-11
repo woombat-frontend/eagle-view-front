@@ -6,4 +6,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+    
+}
+.main-layout {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 11fr;
 }

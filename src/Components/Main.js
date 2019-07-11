@@ -1,17 +1,40 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../Styles/Main.css'
-import a from "../Assets/woombat.png"
-import Context from '../GlobalState/context';
+import Context from '../GlobalState/context'
+import { Route, Link, BrowserRouter } from 'react-router-dom'
+import Mapper from './Mapper'
+import Editable from './Editable'
+import axios from 'axios';
 
 const Main = () => {
 
     const { state, actions } = useContext(Context)
+    const url = "https://woombat-rest-api.herokuapp.com/"
+    const [finalData, setFinalData] = useState({})
+    const urlDataPaths = ["ambientes", "conexiones", "fuentes", "campos", "config", "func"]
+    
+    useEffect(() => {
+        urlDataPaths.map(urlPath => 
+                axios.get(`${url}${urlPath}`)
+                    .then(res => {
+                        finalData[urlPath] = res.data;
+                        setFinalData({ ...finalData })
+                    })
+        )
+        actions({ type: "setState", payload: { ...state, currentRoute: "main", data: finalData } })
+    }, [])
 
     return (
-        <div class="welcome-container">
-            <img style={{ alignSelf: "center" }} width={50} src={a} alt=":D" />
-            <h2 class="title">Bienvenido a Woombat Frontend Team</h2>
-            <h4 class="subtitle">¡Buena suerte en este proyecto!</h4>
+        state.currentRoute === "main" ? 
+        <div class="main-container">
+            <h2 className="welcome">Bienvenido a Eagle View</h2> 
+            <button onClick={() => actions({type: "getState"})}>check</button>
+        </div>
+        :
+        <div>
+                <Route path="/dashboard" component={Mapper} />
+                <Route path="/details" component={Editable} />
+
         </div>
     )
 }

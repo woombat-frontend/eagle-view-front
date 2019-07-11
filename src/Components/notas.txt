@@ -1,0 +1,20 @@
+- estandas name
+- validacion
+
+- radicado con formatos
+
+1 conexion a la base de datos
+2 integrar modelo. Llamada de lambda
+  martes 4:30 - 5
+------------------------------------------------------------------------------
+
+Conexiones
+
+replace dashboard con ambientes
+
+reportes de Tablas (estadisticas)
+
+ambiente -> cluster
+conexiones -> db
+fuentes -> tablas
+campos -> campos de la tabla

@@ -1,34 +1,13 @@
-.welcome-container {
+.main-container {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: #E16A1B;
-    color: white;
-
+    height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
-.title, .subtitle {
-    text-align: center;
-    transform: scale(1.1)
-}
-
-img {
-    animation: spin 2s infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: scale(1);
-    }  
-
-    50% {
-        transform: rotate(0deg) scale(1.3);
-    }
-    100% {
-        transform: rotate(360deg) scale(1);
-    }
+.welcome {
+    font-weight: lighter;
+    color: gray;
+    margin-bottom: 5em;
 }

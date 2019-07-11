@@ -1,0 +1,46 @@
+.navbar-container {
+    width: 100%;
+}
+
+.menu-container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: start;
+
+    background: #00112b;
+    color: white;
+}
+
+.menu-item-container {
+    display: flex;
+    justify-content: start;
+    width: auto;
+    line-height: 2.5em;
+    transition: ease-in-out 200ms;
+}
+.menu-item-container:hover {
+    background: rgba(255, 255, 255, .2);
+    cursor: pointer;
+}
+
+.menu-item {
+    padding: .15em 1em 0 .5em;
+    margin: 0;
+    align-self: center;
+
+}
+
+.icon {
+    padding-left: 1em;
+    align-self: center;
+}
+
+.title {
+    margin: 0;
+    align-self: center;
+    color: white;
+    padding: 0 1em 0 1em;
+    font-weight: lighter;
+}
